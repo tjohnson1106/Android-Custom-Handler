@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
-class Home extends Component {
+class HomeScreen extends Component {
   static navigationOptions = {
     title: "Home"
   };
@@ -18,4 +18,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomeScreen;

@@ -9,7 +9,7 @@ import {
 
 import HandleBack from "./HandleBack";
 
-class Profile extends Component {
+class ProfileScreen extends Component {
   static navigationOptions = {
     title: "Profile"
   };
@@ -20,6 +20,23 @@ class Profile extends Component {
 
   onBack = () => {
     if (this.state.editing) {
+      Alert.alert(
+        "You are still editing!",
+        "Are you sure you do not want to save your edits?",
+        [
+          {
+            text: "Keep Editing",
+            onPress: () => {},
+            style: "cancel"
+          },
+          {
+            text: "Go Home",
+            onPress: () => this.props.navigation.goBack()
+          }
+        ],
+        { cancelable: false }
+      );
+
       return true;
     }
 
@@ -39,7 +56,13 @@ class Profile extends Component {
               })
             }
           >
-            <Text>Toggle Editing {editing ? "Off" : "ON"}</Text>
+            <Text
+              style={{
+                fontSize: 52
+              }}
+            >
+              Toggle Editing {editing ? "Off" : "ON"}
+            </Text>
           </TouchableOpacity>
         </View>
       </HandleBack>
@@ -47,4 +70,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default ProfileScreen;

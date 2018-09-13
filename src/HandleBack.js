@@ -8,15 +8,35 @@ class HandleBack extends Component {
 
     this.didFocus = props.navigation.addListener(
       "didFocus",
-      payload => {}
+      payload => {
+        BackHandler.addEventListener(
+          "hardwareBackPress",
+          this.onBack
+        );
+      }
     );
   }
 
   componentDidMount() {
     this.willBlur = this.props.navigation.addListener(
       "willBlur",
-      payload => {}
+      payload => {
+        BackHandler.removeEventListener(
+          "hardwareBackPress",
+          this.onBack
+        );
+      }
     );
+  }
+
+  onBack = () => {
+    return this.props.onBack();
+  };
+
+  componentWillUnmount() {
+    this.didFocus.remove();
+    this.willBlur.remove();
+    BackHandler.removeEventListener("hardwareBackPress", this.onBack);
   }
 
   render() {

@@ -58,7 +58,7 @@ class ProfileScreen extends Component {
           >
             <Text
               style={{
-                fontSize: 52
+                fontSize: 30
               }}
             >
               Toggle Editing {editing ? "Off" : "ON"}

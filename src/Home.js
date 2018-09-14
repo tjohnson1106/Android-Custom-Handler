@@ -7,11 +7,18 @@ class HomeScreen extends Component {
   };
   render() {
     return (
-      <View>
+      <View
+        style={{
+          paddingTop: 10,
+          borderRadius: 20,
+          backgroundColor: "dodgerblue",
+          justifyContent: "center"
+        }}
+      >
         <TouchableOpacity
           onPress={() => this.props.navigation.push("Profile")}
         >
-          <Text>Profile</Text>
+          <Text style={{ fontSize: 25 }}>Profile</Text>
         </TouchableOpacity>
       </View>
     );
